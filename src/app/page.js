@@ -21,7 +21,7 @@ export default function HomePage() {
       </aside>
 
       {/* Center Pane - Search Results */}
-      <section className="flex-1 min-w-0 bg-background animate-fade-in">
+      <section className="flex-1 min-w-0 bg-background animate-fade-in overflow-hidden">
         <ResultsPane />
       </section>
 

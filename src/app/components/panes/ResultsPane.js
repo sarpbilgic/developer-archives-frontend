@@ -132,8 +132,8 @@ export default function ResultsPane() {
   // Results Grid
   return (
     <div className="flex h-full flex-col">
-      <div className="flex-1 ">
-        <div className="p-8">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden">
+        <div className="p-8 pb-4">
           {/* Results Header */}
           <div className="mb-8 flex items-center justify-between">
             <div>
@@ -157,7 +157,7 @@ export default function ResultsPane() {
           </div>
 
           {/* Results Grid */}
-          <div className="grid gap-5 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+          <div className="grid gap-5 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pb-4">
             {results.map((project) => (
               <RepoCard key={project.id} project={project} />
             ))}
@@ -167,7 +167,7 @@ export default function ResultsPane() {
 
       {/* Pagination Controls */}
       {hasResults && (
-        <div className="border-t border-border-primary/30 bg-background-secondary/80 backdrop-blur-xl px-8 py-5">
+        <div className="sticky bottom-0 border-t border-border-primary/30 bg-background-secondary/90 backdrop-blur-xl px-8 py-5 shadow-2xl shadow-black/20">
           <div className="flex items-center justify-between">
             <div className="text-sm text-text-muted font-medium">
               Page {currentPage} of results

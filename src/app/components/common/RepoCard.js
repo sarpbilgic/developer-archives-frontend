@@ -22,10 +22,10 @@ export default function RepoCard({ project }) {
   return (
     <article
       onClick={handleClick}
-      className={`group relative cursor-pointer rounded-2xl border-2 p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${
+      className={`group relative cursor-pointer rounded-2xl border-2 p-6 transition-all duration-300 hover:shadow-2xl ${
         isSelected
           ? 'border-accent-primary bg-gradient-to-br from-background-tertiary to-background-secondary shadow-xl shadow-accent-primary/20 ring-2 ring-accent-primary/30'
-          : 'border-border-secondary/50 bg-gradient-to-br from-background-secondary to-background-tertiary hover:border-accent-primary/50 hover:shadow-accent-primary/10'
+          : 'border-border-secondary/50 bg-gradient-to-br from-background-secondary to-background-tertiary hover:border-accent-primary hover:shadow-accent-primary/20'
       }`}
     >
       {/* Selected Indicator - Gradient Bar */}
@@ -59,7 +59,7 @@ export default function RepoCard({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="shrink-0 rounded-lg p-2 text-text-muted transition-all duration-200 hover:bg-background-tertiary hover:text-accent-primary hover:scale-110"
+          className="shrink-0 rounded-lg p-2 text-text-muted transition-all duration-200 hover:bg-background-tertiary hover:text-accent-primary"
         >
           <ExternalLink className="h-4 w-4" />
         </a>
