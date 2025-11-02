@@ -3,14 +3,6 @@
 A modern, AI-powered search engine for discovering open source repositories. Built with Next.js 16, React Query, and Zustand. 
 For the main repository of the system visit: https://github.com/sarpbilgic/developer-archives
 
-## 🎨 Design System
-
-**Industrial Dark Mode Theme**
-- **Primary Colors**: Brushed Steel (#71717a), Gunmetal Gray (#27272a)
-- **Accent**: Electric Blue (#0ea5e9)
-- **Background**: Deep Black (#0a0a0a)
-- **Modern aesthetic** inspired by Vercel's design language
-
 ## 🏗️ Architecture
 
 ### Three-Pane Layout (SPA)
