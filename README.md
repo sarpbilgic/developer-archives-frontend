@@ -1,6 +1,7 @@
 # Developer Archives - Frontend
 
-A modern, AI-powered search engine for discovering open source repositories. Built with Next.js 16, React Query, and Zustand.
+A modern, AI-powered search engine for discovering open source repositories. Built with Next.js 16, React Query, and Zustand. 
+For the main repository of the system visit: https://github.com/sarpbilgic/developer-archives
 
 ## 🎨 Design System
 
