@@ -42,42 +42,10 @@ cp .env.local.example .env.local
 # NEXT_PUBLIC_API_URL=https://your-api-gateway-url.execute-api.region.amazonaws.com
 ```
 
-## 🚀 Development
-
-```bash
-# Start development server
-npm run dev
-
-# Open http://localhost:3000
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   ├── layout/
-│   │   │   └── Header.js          # Top navigation with search
-│   │   ├── panes/
-│   │   │   ├── FiltersPane.js     # Left sidebar filters
-│   │   │   ├── ResultsPane.js     # Center search results
-│   │   │   └── DetailPane.js      # Right repository details
-│   │   └── common/
-│   │       ├── RepoCard.js        # Repository card component
-│   │       └── ReadmeViewer.js    # Markdown renderer
-│   ├── ClientProviders.js         # React Query provider
-│   ├── layout.js                  # Root layout
-│   ├── page.js                    # Main 3-pane layout
-│   └── globals.css                # Theme & global styles
-├── lib/
-│   ├── api.js                     # API client functions
-│   └── store.js                   # Zustand store
-```
 
 ## 🔌 API Integration
 
-The frontend connects to your AWS API Gateway backend with these endpoints:
+The frontend is connected to theAWS API Gateway backend with these endpoints:
 
 - `GET /api/v1/search` - Search repositories
 - `GET /api/v1/projects/{id}` - Get project details
@@ -105,39 +73,6 @@ The frontend connects to your AWS API Gateway backend with these endpoints:
 NEXT_PUBLIC_API_URL=your-api-gateway-url
 ```
 
-## 🚢 Deployment
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-Deploy to Vercel, Netlify, or any platform that supports Next.js.
-
-## 🎨 Customization
-
-### Theme Colors
-Edit `src/app/globals.css` to customize the color scheme:
-
-```css
-:root {
-  --accent-primary: #0ea5e9;  /* Electric Blue */
-  --steel: #71717a;            /* Brushed Steel */
-  --gunmetal: #27272a;         /* Gunmetal Gray */
-  /* ... more colors */
-}
-```
-
-### Layout
-Adjust pane widths in `src/app/page.js`:
-
-```jsx
-<aside className="w-64 ...">      {/* Left pane width */}
-<aside className="w-[480px] ...">  {/* Right pane width */}
-```
 
 ## 📄 License
 

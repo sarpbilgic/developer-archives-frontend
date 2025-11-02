@@ -6,37 +6,31 @@ import ResultsPane from './components/panes/ResultsPane';
 import DetailPane from './components/panes/DetailPane';
 
 /**
- * Main Page Component - Dynamic Two/Three-Pane Layout
+ * Main Page Component - Modern Dynamic Layout
  * 
- * This is the main SPA view with flexible columns:
- * 1. FiltersPane (left) - Search filters and options
- * 2. ResultsPane (center/full) - Search results grid
- * 3. DetailPane (right, conditional) - Only shown when a repository is selected
- * 
- * All state is managed via Zustand store, and data fetching via React Query.
+ * Flexible three-pane layout with smooth transitions and animations.
  */
 export default function HomePage() {
   const selectedProjectId = useAppStore((state) => state.selectedProjectId);
 
   return (
-    <div className="flex h-full w-full gap-1">
+    <div className="flex h-full w-full gap-3 bg-background">
       {/* Left Pane - Filters */}
-      <aside className="w-72 flex-shrink-0 bg-[var(--background-secondary)] rounded-r-lg">
+      <aside className="w-72 shrink-0 bg-background-secondary rounded-r-2xl overflow-hidden animate-fade-in shadow-xl">
         <FiltersPane />
       </aside>
 
       {/* Center Pane - Search Results */}
-      <section className="flex-1 min-w-0 bg-[var(--background)]">
+      <section className="flex-1 min-w-0 bg-background animate-fade-in">
         <ResultsPane />
       </section>
 
-      {/* Right Pane - Repository Details (Conditional) */}
+      {/* Right Pane - Repository Details (Conditional with Animation) */}
       {selectedProjectId && (
-        <aside className="w-[520px] flex-shrink-0 bg-[var(--background-secondary)] rounded-l-lg">
+        <aside className="w-[520px] shrink-0 bg-background-secondary rounded-l-2xl overflow-hidden animate-slide-down shadow-2xl">
           <DetailPane />
         </aside>
       )}
     </div>
   );
 }
-

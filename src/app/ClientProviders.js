@@ -13,15 +13,14 @@ import { useState } from 'react';
  * @param {React.ReactNode} props.children - Child components to wrap
  */
 export default function ClientProviders({ children }) {
-  // Initialize QueryClient with useState to ensure it's created only once per component instance
-  // This prevents creating a new client on every render
+
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        // Stale time: how long data is considered fresh (5 minutes)
-        staleTime: 5 * 60 * 1000,
-        // Cache time: how long unused data stays in cache (10 minutes)
-        gcTime: 10 * 60 * 1000,
+        // Stale time: how long data is considered fresh (120 minutes)
+        staleTime: 120 * 60 * 1000,
+        // Cache time: how long unused data stays in cache (120 minutes)
+        gcTime: 120 * 60 * 1000,
         // Retry failed requests once
         retry: 1,
         // Don't refetch on window focus by default (can be overridden per query)

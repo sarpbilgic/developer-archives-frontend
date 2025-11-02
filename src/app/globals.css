@@ -1,67 +1,48 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Industrial Dark Mode Theme - Brushed Steel, Gunmetal Gray, Electric Blue */
-:root {
+@theme inline {
   /* Background Colors */
-  --background: #0a0a0a;
-  --background-secondary: #111111;
-  --background-tertiary: #1a1a1a;
+  --color-background: #0a0a0a;
+  --color-background-secondary: #111111;
+  --color-background-tertiary: #1a1a1a;
   
   /* Text Colors */
-  --text-primary: #e5e5e5;
-  --text-secondary: #a3a3a3;
-  --text-muted: #737373;
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #737373;
   
   /* Accent Colors - Electric Blue */
-  --accent-primary: #0ea5e9;
-  --accent-hover: #38bdf8;
-  --accent-dark: #0284c7;
+  --color-accent-primary: #0ea5e9;
+  --color-accent-hover: #38bdf8;
+  --color-accent-dark: #0284c7;
   
   /* Metallic Colors - Brushed Steel & Gunmetal */
-  --steel: #71717a;
-  --steel-light: #a1a1aa;
-  --gunmetal: #27272a;
-  --gunmetal-light: #3f3f46;
+  --color-steel: #71717a;
+  --color-steel-light: #a1a1aa;
+  --color-gunmetal: #27272a;
+  --color-gunmetal-light: #3f3f46;
   
   /* Border Colors */
-  --border-primary: #27272a;
-  --border-secondary: #3f3f46;
-  --border-accent: #0ea5e9;
+  --color-border-primary: #27272a;
+  --color-border-secondary: #3f3f46;
+  --color-border-accent: #0ea5e9;
   
   /* Status Colors */
-  --success: #10b981;
-  --error: #ef4444;
-  --warning: #f59e0b;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-background-secondary: var(--background-secondary);
-  --color-background-tertiary: var(--background-tertiary);
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
   
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-dark: var(--accent-dark);
-  
-  --color-steel: var(--steel);
-  --color-steel-light: var(--steel-light);
-  --color-gunmetal: var(--gunmetal);
-  --color-gunmetal-light: var(--gunmetal-light);
-  
-  --color-border-primary: var(--border-primary);
-  --color-border-secondary: var(--border-secondary);
-  --color-border-accent: var(--border-accent);
-  
-  --color-success: var(--success);
-  --color-error: var(--error);
-  --color-warning: var(--warning);
-  
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Custom Animations */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-slide-down: slide-down 0.4s ease-out;
+  --animate-scale-in: scale-in 0.3s ease-out;
 }
 
 * {
@@ -76,151 +57,175 @@ html {
 
 body {
   height: 100%;
-  background: var(--background);
-  color: var(--text-primary);
+  background: linear-gradient(to bottom, #0a0a0a 0%, #0f0f0f 100%);
+  color: #e5e5e5;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar - Dark & Minimalist */
+/* Custom Scrollbar - Modern & Sleek */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-secondary);
+  background: #0a0a0a;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gunmetal-light);
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #3f3f46, #27272a);
+  border-radius: 10px;
+  border: 2px solid #0a0a0a;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--steel);
+  background: linear-gradient(to bottom, #71717a, #3f3f46);
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--gunmetal-light) var(--background-secondary);
+  scrollbar-color: #3f3f46 #0a0a0a;
 }
 
-/* Markdown Content Styles for ReadmeViewer */
-.markdown-content {
-  color: var(--text-primary);
-  line-height: 1.8;
+/* Smooth Transitions for Interactive Elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.2s ease;
 }
 
-.markdown-content h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1.25rem;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-primary);
-  padding-bottom: 0.75rem;
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
 }
 
-.markdown-content h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.markdown-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.markdown-content p {
-  margin-bottom: 1.25rem;
-  color: var(--text-secondary);
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.markdown-content a {
-  color: var(--accent-primary);
-  text-decoration: none;
-  transition: color 0.2s;
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.markdown-content a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+  }
 }
 
-.markdown-content code {
-  background: var(--background-tertiary);
-  color: var(--accent-primary);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.9em;
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(26, 26, 26, 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.markdown-content pre {
-  background: var(--background-tertiary);
-  border: 1px solid var(--border-primary);
-  border-radius: 8px;
-  padding: 1.5rem;
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
-  margin-top: 1rem;
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #0ea5e9, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.markdown-content pre code {
-  background: transparent;
-  padding: 0;
-  color: var(--text-primary);
+/* Shimmer Effect for Loading States */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
-.markdown-content ul,
-.markdown-content ol {
-  margin-left: 2rem;
-  margin-bottom: 1.25rem;
-  color: var(--text-secondary);
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #1a1a1a 0%,
+    #27272a 20%,
+    #1a1a1a 40%,
+    #1a1a1a 100%
+  );
+  background-size: 1000px 100%;
 }
 
-.markdown-content li {
-  margin-bottom: 0.75rem;
+/* Selection Styling */
+::selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #e5e5e5;
 }
 
-.markdown-content blockquote {
-  border-left: 4px solid var(--accent-primary);
-  padding-left: 1.5rem;
-  margin: 1.5rem 0;
-  color: var(--text-secondary);
-  font-style: italic;
+::-moz-selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #e5e5e5;
 }
 
-.markdown-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
-  margin-top: 1rem;
+/* Utility Classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
 }
 
-.markdown-content th,
-.markdown-content td {
-  border: 1px solid var(--border-primary);
-  padding: 0.75rem;
-  text-align: left;
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
 }
 
-.markdown-content th {
-  background: var(--background-tertiary);
-  font-weight: 600;
+.animate-slide-down {
+  animation: slide-down 0.4s ease-out;
 }
 
-.markdown-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 1.5rem 0;
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

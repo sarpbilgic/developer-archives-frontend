@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { useAppStore } from '@/lib/store';
-import { Search } from 'lucide-react';
+import { Search, Github } from 'lucide-react';
+import Image from 'next/image';
 
 /**
  * Header Component
  * 
- * The top navigation bar containing the logo and search functionality.
- * When user presses Enter, it updates the global search query via Zustand store.
+ * Modern top navigation bar with logo and search functionality.
+ * Features glassmorphism design and smooth animations.
  */
 export default function Header() {
   const [searchInput, setSearchInput] = useState('');
@@ -22,48 +23,57 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky p-5 m-5 top-0 z-50 border-b border-[var(--border-primary)] bg-[var(--background-secondary)]/95 backdrop-blur-sm">
-      <div className="flex items-center justify-between px-10 py-8">
+    <header className="sticky top-0 z-50 border-b border-border-primary/30 bg-background-secondary/70 backdrop-blur-2xl">
+      <div className="flex items-center justify-between px-8 py-5">
         {/* Logo Section */}
-        <div className="flex items-center gap-5">
-          <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-dark)] shadow-lg shadow-[var(--accent-primary)]/20">
-            <span className="text-2xl font-bold text-white">DA</span>
+        <div className="flex items-center gap-4">
+          <div className="relative flex h-12 w-12 items-center justify-center rounded-xl overflow-hidden shadow-lg shadow-accent-primary/25 ring-1 ring-white/10">
+            <Image
+              src="/da_logo.png"
+              alt="Developer Archives Logo"
+              width={48}
+              height={48}
+              className="object-contain"
+              priority
+            />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
+            <h1 className="text-lg font-bold tracking-tight text-text-primary">
               Developer Archives
             </h1>
-            <p className="mt-1 text-sm text-[var(--text-muted)]">
-              Discover Open Source Projects
+            <p className="mt-0.5 text-xs text-text-muted">
+              AI-Powered Repository Search
             </p>
           </div>
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="flex-1 max-w-3xl mx-12">
+        <form onSubmit={handleSearch} className="flex-1 max-w-2xl mx-10">
           <div className="relative group">
-            <Search className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--text-muted)] transition-colors group-focus-within:text-[var(--accent-primary)]" />
+            <Search className="absolute right-2 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-text-muted transition-all duration-200 group-focus-within:text-accent-primary group-focus-within:scale-110" />
             <input
               type="search"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search repositories by description, topics, or keywords..."
-              className="w-full rounded-lg border border-[var(--border-secondary)] bg-[var(--background-tertiary)] py-4 pl-14 pr-5 text-base text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition-all duration-200 focus:border-[var(--accent-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/20"
+              className="w-full h-8 rounded-xl border-2 border-border-secondary/50 bg-background-tertiary/40 py-3 pl-11 pr-4 text-sm text-text-primary placeholder:text-text-muted transition-all duration-200 hover:border-border-secondary focus:border-accent-primary focus:bg-background-tertiary focus:outline-none focus:ring-4 focus:ring-accent-primary/10 focus:shadow-lg focus:shadow-accent-primary/5"
             />
           </div>
         </form>
 
-        {/* Optional: Stats or User Section */}
-        <div className="flex items-center gap-3">
-          <div className="rounded-lg border border-[var(--border-primary)] bg-[var(--background-tertiary)] px-5 py-2.5">
-            <span className="text-sm text-[var(--text-secondary)]">
-              Powered by{' '}
-              <span className="font-semibold text-[var(--accent-primary)]">AI</span>
-            </span>
-          </div>
+        {/* GitHub Link */}
+        <div className="flex items-center">
+          <a
+            href="https://github.com/sarpbilgic"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 rounded-xl border border-border-primary/40 bg-gradient-to-br from-background-tertiary/60 to-background-secondary/60 px-4 py-2.5 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-accent-primary/50 hover:shadow-lg hover:shadow-accent-primary/20 hover:scale-105 active:scale-95"
+          >
+            <Github className="h-4 w-4 text-text-secondary group-hover:text-accent-primary transition-colors duration-200" />
+            <span className="text-xs font-semibold text-text-primary group-hover:text-accent-primary transition-colors duration-200">My GitHub Profile</span>
+          </a>
         </div>
       </div>
     </header>
   );
 }
-

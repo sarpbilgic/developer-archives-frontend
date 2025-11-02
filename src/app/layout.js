@@ -16,9 +16,18 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Developer Archives - Discover Open Source Projects",
   description: "AI-powered search engine for discovering and exploring open source repositories",
+  icons: {
+    icon: '/da_logo.png',
+    shortcut: '/da_logo.png',
+    apple: '/da_logo.png',
+    other: {
+      rel: 'icon',
+      url: '/da_logo.png',
+    },
+  },
 };
 
-// Add loading configuration for better UX
+// loading configuration for better UX
 export const viewport = {
   themeColor: '#0a0a0a',
 };
